@@ -176,16 +176,23 @@ print("========================")
 # print(dft[dft.iloc[:,35] == 1])
 # dft = dft[dft.iloc[:,35] == 1]
 # 성별(남)
-print(dft[dft.iloc[:,2] == 0])
-dft = dft[dft.iloc[:,2] == 0]
+# print(dft[dft.iloc[:,2] == 0])
+# dft = dft[dft.iloc[:,2] == 0]
 # 성별(여)
 # print(dft[dft.iloc[:,2] == 1])
 # dft = dft[dft.iloc[:,2] == 1]
+# 자동차X
+# print(dft[dft.iloc[:,41] == 0])
+# dft = dft[dft.iloc[:,41] == 0]
+# 자동차O
+print(dft[dft.iloc[:,41] == 1])
+dft = dft[dft.iloc[:,41] == 1]
+
 
 print("========================")
 
 # Elbow 찾기
-findElbow(dft, range(1,15))
+findElbow(dft, range(1,10))
 
 
 
@@ -194,7 +201,7 @@ model = KMeans()
 grid = GridSearchCV(estimator=model, cv=10, param_grid={
     "tol": [100, 10, 1, 0.1, 0.01, 0.001,],
     "n_init": [10, 100, 1000,],
-    "n_clusters": [3]
+    "n_clusters": [2]
 }, n_jobs=20)
 
 grid.fit(dft)
