@@ -185,11 +185,17 @@ print("========================")
 # print(dft[dft.iloc[:,41] == 0])
 # dft = dft[dft.iloc[:,41] == 0]
 # 자동차O
-print(dft[dft.iloc[:,41] == 1])
-dft = dft[dft.iloc[:,41] == 1]
+# print(dft[dft.iloc[:,41] == 1])
+# dft = dft[dft.iloc[:,41] == 1]
 
+# 점수에 따라 분석
+print(dft[dft.iloc[:,1] == 5])
+dft = dft[dft.iloc[:,1] == 5]
 
 print("========================")
+
+dft.describe().to_csv("result5.csv", encoding='euc-kr')
+
 
 # Elbow 찾기
 findElbow(dft, range(1,10))
